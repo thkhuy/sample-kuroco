@@ -53,6 +53,9 @@ jobs:
           rm -rf node_modules package-lock.json
           npm install
 
+      - name: Rebuild native binding (oxc-parser)
+        run: |
+          npm rebuild oxc-parser
       - name: Generate
         run: npm run generate
       - name: Validate kuroco_front.json
