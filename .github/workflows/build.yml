@@ -47,18 +47,10 @@ jobs:
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ github.ref_name }}-${{ hashFiles('**/package-lock.json') }}
-      - name: Clean node_modules and lockfile
-        run: |
-          rm -rf node_modules
-          rm -f package-lock.json
       - name: Install dependencies
         if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
-        run: |
-          npm install
+        run: npm ci
 
-      - name: Rebuild native binding (oxc-parser)
-        run: |
-          npm rebuild oxc-parser
       - name: Generate
         run: npm run generate
       - name: Validate kuroco_front.json
@@ -113,17 +105,10 @@ jobs:
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ github.ref_name }}-${{ hashFiles('**/package-lock.json') }}
-      - name: Clean node_modules and lockfile
-        run: |
-          rm -rf node_modules
-          rm -f package-lock.json
       - name: Install dependencies
         if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
-        run: |
-          npm install
-      - name: Rebuild native binding (oxc-parser)
-        run: |
-          npm rebuild oxc-parser
+        run: npm ci
+
       - name: Generate
         run: npm run generate
       - name: Validate kuroco_front.json
