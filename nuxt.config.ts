@@ -24,8 +24,9 @@ export default defineNuxtConfig({
       enabled: true,
       type: 'module'
     },
-    workbox: {
-      swSrc: 'public/sw.js',
+    injectManifest: {
+      swSrc: 'public/custom-sw.js',
+      swDest: 'sw.js',
     },
   },
   plugins: ['~/plugins/push.client.ts']
