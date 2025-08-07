@@ -23,6 +23,21 @@ export default defineNuxtConfig({
     devOptions: {
       enabled: true,
       type: 'module'
+    },
+    workbox: {
+      globPatterns: [
+        '**/*.{js,css,html,ico,png,svg,json}',
+      ],
+      navigateFallback: '/', // quan trọng cho SPA
+      runtimeCaching: [
+        {
+          urlPattern: /^https:\/\/tma-kuroco-sample\.g\.kuroco-front\.app\/.*$/,
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'kuroco-cache'
+          }
+        }
+      ]
     }
   },
   plugins: ['~/plugins/push.client.ts']
