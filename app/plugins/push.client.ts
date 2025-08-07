@@ -11,7 +11,9 @@ export default defineNuxtPlugin(async () => {
     
     console.log('')
     // await navigator.serviceWorker.ready;
-    const registration = await navigator.serviceWorker.ready
+    // const registration = await navigator.serviceWorker.ready
+    const registration = await navigator.serviceWorker.register('/sw.js')
+    await navigator.serviceWorker.ready
     const subscription = await registration.pushManager.subscribe({
       userVisibleOnly: true,
       applicationServerKey: urlBase64ToUint8Array('BK4gbl_eAnY702WNd1vMOah_xxtY7qh1DChs4a4sZ86Q7-eNfuUU_DwRwF-6tDJJZnV7N2tjAxrran0mfAEO50I')
