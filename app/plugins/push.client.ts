@@ -1,4 +1,6 @@
 export default defineNuxtPlugin(async () => {
+  console.log('[Push] Starting registration...')
+
   if (!process.client) return
   if (!('serviceWorker' in navigator) || !('PushManager' in window)) {
     console.warn('[Push] Browser does not support push notifications.')
@@ -6,20 +8,23 @@ export default defineNuxtPlugin(async () => {
   }
 
   try {
+    
+    console.log('')
+    // await navigator.serviceWorker.ready;
     const registration = await navigator.serviceWorker.ready
-
     const subscription = await registration.pushManager.subscribe({
       userVisibleOnly: true,
       applicationServerKey: urlBase64ToUint8Array('BK4gbl_eAnY702WNd1vMOah_xxtY7qh1DChs4a4sZ86Q7-eNfuUU_DwRwF-6tDJJZnV7N2tjAxrran0mfAEO50I')
     })
 
-    await fetch('http://localhost:3000/save-sub', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(subscription)
-    })
-
-    console.log('[Push] Subscribed successfully:', subscription.endpoint)
+    //await fetch('http://localhost:3000/save-sub', {
+    //  method: 'POST',
+    //  headers: { 'Content-Type': 'application/json' },
+    //  body: JSON.stringify(subscription)
+    //})
+    //
+    //console.log('[Push] Subscribed successfully:', subscription.endpoint)
+    console.log('[Push] Subscribed successfully:')
   } catch (error) {
     console.error('[Push] Subscription error:', error)
   }
