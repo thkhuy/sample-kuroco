@@ -1,3 +1,4 @@
+
 self.addEventListener('push', event => {
   let data = {}
   try {
@@ -9,4 +10,4 @@ self.addEventListener('push', event => {
     body: data.body,
     icon: '/favicon.ico'
   })
-})
+});
