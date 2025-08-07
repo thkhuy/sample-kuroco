@@ -25,7 +25,7 @@ export default defineNuxtConfig({
       type: 'module'
     },
     injectManifest: {
-      swSrc: 'custom-sw.js',
+      swSrc: 'public/custom-sw.js',
       swDest: 'sw.js',
     },
   },

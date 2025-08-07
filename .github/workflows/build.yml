@@ -52,7 +52,11 @@ jobs:
         run: npm ci
 
       - name: Generate
-        run: npm run generate
+        #run: npm run generate
+        run: |
+          rm -rf .output .nuxt dist
+          npm run build
+          npm run generate
       - name: Validate kuroco_front.json
         run: |
           if [ -f "./.output/public/kuroco_front.json" ]; then
@@ -110,7 +114,11 @@ jobs:
         run: npm ci
 
       - name: Generate
-        run: npm run generate
+        #run: npm run generate
+        run: |
+          rm -rf .output .nuxt dist
+          npm run build
+          npm run generate
       - name: Validate kuroco_front.json
         run: |
           if [ -f "./.output/public/kuroco_front.json" ]; then
