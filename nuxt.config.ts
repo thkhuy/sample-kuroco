@@ -33,5 +33,5 @@ export default defineNuxtConfig({
       type: 'module'
     }
   },
-  plugins: ['~/plugins/push.client.ts']
+  plugins: ['~/app/plugins/push.client.ts']
 })
