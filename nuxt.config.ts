@@ -11,6 +11,9 @@ export default defineNuxtConfig({
   },
   modules: ['@vite-pwa/nuxt'],
   pwa: {
+    strategies: 'injectManifest',
+    srcDir: 'service-worker',
+    filename: 'sw.js',
     registerType: 'autoUpdate',
     manifest: {
       name: 'Kuroco PWA Notify',
@@ -20,14 +23,15 @@ export default defineNuxtConfig({
       background_color: '#ffffff',
       theme_color: '#4A90E2'
     },
+    injectManifest: {
+      globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
+      // swSrc: 'my-sw.js',
+      // swDest: 'sw.js',
+    },
     devOptions: {
       enabled: true,
       type: 'module'
-    },
-    injectManifest: {
-      swSrc: 'custom-sw.js',
-      swDest: 'sw.js',
-    },
+    }
   },
   plugins: ['~/plugins/push.client.ts']
 })

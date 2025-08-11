@@ -10,14 +10,11 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxtjs/pwa": "^3.3.5",
-    "@vite-pwa/nuxt": "^1.0.4",
+    "@vite-pwa/nuxt": "^0.8.0",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
-    "express": "^5.1.0",
-    "nuxt": "^4.0.1",
-    "vue": "^3.5.18",
-    "vue-router": "^4.5.1",
+    "express": "^4.19.2",
+    "nuxt": "^3.12.3",
     "web-push": "^3.6.7"
   }
 }
