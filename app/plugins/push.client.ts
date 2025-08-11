@@ -15,7 +15,7 @@ export default defineNuxtPlugin(async () => {
       applicationServerKey: urlBase64ToUint8Array('BK4gbl_eAnY702WNd1vMOah_xxtY7qh1DChs4a4sZ86Q7-eNfuUU_DwRwF-6tDJJZnV7N2tjAxrran0mfAEO50I')
     })
 
-    await fetch('https://a0f08f08fc3a9960c41748c270e640f8.serveo.net/save-sub', {
+    await fetch('https://189fcf81c30f047d598c372968c46c67.serveo.net/save-sub', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(subscription)
