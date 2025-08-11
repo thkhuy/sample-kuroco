@@ -15,7 +15,7 @@ export default defineNuxtPlugin(async () => {
       applicationServerKey: urlBase64ToUint8Array('BK4gbl_eAnY702WNd1vMOah_xxtY7qh1DChs4a4sZ86Q7-eNfuUU_DwRwF-6tDJJZnV7N2tjAxrran0mfAEO50I')
     })
 
-    hostPort = 'https://e82dd8baabab8625460264fc9dcf72ab.serveo.net'
+    const hostPort = 'https://e82dd8baabab8625460264fc9dcf72ab.serveo.net'
     url = hostPort + '/save-sub'
     await fetch(url, {
       method: 'POST',
